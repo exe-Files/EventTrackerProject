@@ -15,7 +15,7 @@ To wrap up our material on JPA/REST, each of us were tasked with creating a full
 | Read     | GET       | `/api/habits`     |              | Collection of representations of all _habit_ resources |
 | Read     | GET       | `/api/habits/1`   |              | Representation of _habit_ `1` |
 | Create   | POST      | `/api/habits`     | Representation of a new _habit_ resource | Description of the result operation |
-| Update   | PUT       | `/api/habits/1`   | Representation of a new version of _habit_ `1` | |
+| Update   | PUT       | `/api/habits/1`   | Representation of a new version of _habit_ `1` | Description of the result operation |
 | Delete   | DELETE    | `/api/habits/1`   |              | |
 
 
