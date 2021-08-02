@@ -1,21 +1,57 @@
 package com.skilldistillery.habits.entities;
 
+import java.time.LocalDateTime;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import org.hibernate.annotations.CreationTimestamp;
+
 @Entity
 public class Habit {
+	// Fields
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
+
 	private String name;
+
+	private String description;
+
+	private String category;
+
+	private Boolean active;
+
+	private Boolean accomplished;
+
+	private String recurring;
+
+	private String frequency;
+
+	private String notes;
+
+	@Column(name = "start_date")
+	@CreationTimestamp
+	private LocalDateTime startDate;
+
+	@Column(name = "end_date")
+	private LocalDateTime endDate;
+
+	private String color;
+
+	private String icon;
+
+	// Constructors
 
 	public Habit() {
 		super();
 	}
+
+	// Methods
 
 	public int getId() {
 		return id;
@@ -33,9 +69,101 @@ public class Habit {
 		this.name = name;
 	}
 
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public String getCategory() {
+		return category;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
+	}
+
+	public Boolean getActive() {
+		return active;
+	}
+
+	public void setActive(Boolean active) {
+		this.active = active;
+	}
+
+	public Boolean getAccomplished() {
+		return accomplished;
+	}
+
+	public void setAccomplished(Boolean accomplished) {
+		this.accomplished = accomplished;
+	}
+
+
+	public String getRecurring() {
+		return recurring;
+	}
+
+	public void setRecurring(String recurring) {
+		this.recurring = recurring;
+	}
+
+	public String getFrequency() {
+		return frequency;
+	}
+
+	public void setFrequency(String frequency) {
+		this.frequency = frequency;
+	}
+
+	public String getNotes() {
+		return notes;
+	}
+
+	public void setNotes(String notes) {
+		this.notes = notes;
+	}
+
+	public LocalDateTime getStartDate() {
+		return startDate;
+	}
+
+	public void setStartDate(LocalDateTime startDate) {
+		this.startDate = startDate;
+	}
+
+	public LocalDateTime getEndDate() {
+		return endDate;
+	}
+
+	public void setEndDate(LocalDateTime endDate) {
+		this.endDate = endDate;
+	}
+
+	public String getColor() {
+		return color;
+	}
+
+	public void setColor(String color) {
+		this.color = color;
+	}
+
+	public String getIcon() {
+		return icon;
+	}
+
+	public void setIcon(String icon) {
+		this.icon = icon;
+	}
+
 	@Override
 	public String toString() {
-		return "Habit [id=" + id + ", name=" + name + "]";
+		return "Habit [id=" + id + ", name=" + name + ", description=" + description + ", category=" + category
+				+ ", active=" + active + ", accomplished=" + accomplished + ", recurring=" + recurring + ", frequency="
+				+ frequency + ", notes=" + notes + ", startDate=" + startDate + ", endDate=" + endDate + ", color="
+				+ color + ", icon=" + icon + "]";
 	}
 
 	@Override
@@ -59,7 +187,5 @@ public class Habit {
 			return false;
 		return true;
 	}
-	
-	
-	
+
 }
