@@ -2,10 +2,11 @@
 
 ## Full-Stack Spring/REST/JPA Project for Skill Distillery
 
-![DB Schema](https://user-images.githubusercontent.com/23006320/127801588-96f3dd68-f7f8-4ae7-92d8-5b1a6984be16.png)
 
 ## Overview
 To wrap up our material on JPA/REST, each of us were tasked with creating a full stack java web application that would keep track of information over time. For my project, I decided to go with a simple habit-tracker that allows a user to create and update different habits they would like to accomplish throughout the day. Currently, the website only works through REST endpoints, listed in the table below. By linking the website to a MySql database, the user is able to dynamically update their list in realtime as the user accomplishes their daily goals.
+
+![DB Schema](https://user-images.githubusercontent.com/23006320/127801588-96f3dd68-f7f8-4ae7-92d8-5b1a6984be16.png)
 
 ## REST Endpoints
 <!-- markdown tables -->
