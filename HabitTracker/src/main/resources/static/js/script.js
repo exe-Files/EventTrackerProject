@@ -12,7 +12,10 @@ function init(){
 			name: habitForm.name.value,
 			description: habitForm.description.value, 
 			category: habitForm.category.value, 
-			color: habitForm.color.value
+			color: habitForm.color.value,
+			icon: habitForm.icon.value,
+			startDate: habitForm.startDate.value,
+			endDate: habitForm.endDate.value		
 		};
 		createHabit(newHabit);
 	});
