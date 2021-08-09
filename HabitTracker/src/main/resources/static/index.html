@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Habit Tracker</title>
+<script type="text/javascript" src="js/script.js"></script>
+<link rel="stylesheet" href="styles.css">
+<!-- LINK BOOTSTRAP -->
+</head>
+<body>
+
+<h1>Habit Tracker</h1>
+
+<div id="habitDiv">
+    <table id="habitListTable"></table><br>
+    <table id="habitDetailsTable"></table>
+</div>
+
+<form id="editHabitForm"></form>
+
+<form name="newHabitForm">
+    <h3>Add a Habit</h3>
+    <label for="name">Name</label><input type="text" name='name'><br>
+    <label for="description">Description</label><br>
+    <textarea rows='3' cols='60' name='description'></textarea><br>
+    <label for="category">Category</label><input type="text" name='category'><br>
+    <label for="color">Color</label><input type='text' name='color'><br>
+    <button name='addHabit'>Add Habit</button>
+</form>
+
+</body>
+</html>
