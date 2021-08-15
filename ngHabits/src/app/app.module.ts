@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HabitsService } from './services/habits.service';
 import { HabitListComponent } from './components/habit-list/habit-list.component';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { HabitListComponent } from './components/habit-list/habit-list.component
 
   ],
   providers: [
-    HabitsService
+    HabitsService,
+    DatePipe
   ],
   bootstrap: [AppComponent]
 })

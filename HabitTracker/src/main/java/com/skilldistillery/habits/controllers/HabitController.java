@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.skilldistillery.habits.entities.Habit;
 import com.skilldistillery.habits.services.HabitService;
-@CrossOrigin({"*", "http://localhost:4210"})
+@CrossOrigin({"*", "http://localhost:4210"})  //accepts all traffic from port 4210
 @RestController
 @RequestMapping("api")
 public class HabitController {
@@ -83,7 +83,7 @@ public class HabitController {
 	}
 
 	@DeleteMapping("habits/{habitId}")
-	public boolean deleteFilm(
+	public boolean deleteHabit(
 			@PathVariable Integer habitId,
 			HttpServletResponse res
 			) {

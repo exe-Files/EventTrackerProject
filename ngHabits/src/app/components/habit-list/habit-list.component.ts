@@ -10,13 +10,15 @@ import { HabitsService } from 'src/app/services/habits.service';
 export class HabitListComponent implements OnInit {
 
   habits: Habit[] = [];
+  title = 'Habit Tracker';
+  selected: Habit | null = null;
 
   constructor(
     private habitService: HabitsService
   ) { }
 
   ngOnInit(): void {
-    this.loadHabits();
+    this.loadHabits(); //when the component loads, this will populate the habits array
   }
 
   loadHabits(){
@@ -30,5 +32,10 @@ export class HabitListComponent implements OnInit {
       }
     )
   }
+
+  getHabitCount() : Number{
+    return this.habits.length;
+  }
+
 
 }
