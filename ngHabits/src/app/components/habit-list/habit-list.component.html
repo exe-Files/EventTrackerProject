@@ -3,19 +3,49 @@
 </ul>
  -->
 
-<h1>{{title}} <span > - {{getHabitCount()}} Due</span></h1>
+<h1>{{title}} <span [ngClass]="getWarningLevel()"> {{getHabitCount()}} </span> Due</h1>
 
 <table *ngIf="!selected" class="table table-striped table-hover">
   <thead class="thead-dark">
     <tr>
-      <th>Habits</th>
-      <th>Aug 14</th>
-      <th>Aug 15</th>
-      <th>Aug 16</th>
-      <th>Aug 17</th>
+      <th> <span> Habits </span></th>
+      <th *ngFor="let weekday of currentWeek">{{weekday | date: 'MMM/dd'}}</th>
+
     </tr>
   </thead>
-  <tr *ngFor="let habit of habits">{{habit.name | json}}
-  </tr>
+  <tbody>
+    <tr *ngFor="let habit of habits">
+      <td (click)="displayHabit(habit)">{{habit.name}}</td>
+      <!-- <td ><input type="checkbox" name="completed" [(ngModel)]="habit.accomplished" (change)='updateHabit(habit)'></td> -->
+      <td *ngFor="let weekday of currentWeek"><input type="checkbox" name="completed" [(ngModel)]="habit.accomplished" (change)='updateHabit(habit)'></td>
+      <!-- <td *ngFor="let weekday of currentWeek"><input type="checkbox" name="completed" [(ngModel)]="habit.accomplished" (change)='updateHabitEntry(habit, weekday)'></td> -->
+      <td><button class="btn btn-danger" (click)="deleteHabit(habit.id)">X</button></td>
+
+      <td></td>
+    </tr>
+  </tbody>
 </table>
 
+<form *ngIf="!selected">
+  <input type="text" name="task" [(ngModel)]="newHabit.name">
+  <input type="submit" name="submit" value="Add New Habit" (click)="addHabit()">
+
+</form>
+
+
+<div id='habitDetails' *ngIf="selected && !editHabit">
+  <p>{{selected.id}}</p>
+  <p>{{selected.name}}</p>
+  <p>{{selected.description}}</p>
+  <p>{{selected.accomplished}}</p>
+  <button (click)="displayTable()">Back</button>
+  <button (click)="setEditTodo()">Edit</button>
+</div>
+
+<form *ngIf="editHabit">
+  Task: <input type="text" name="task" [(ngModel)]="editHabit.name"><br>
+  Description: <input type="text" name="description" [(ngModel)]="editHabit.description"><br>
+  Completed: <input type="checkbox" name="completed" [(ngModel)]="editHabit.accomplished"><br>
+  <input type="submit" name="Save" value="Save" (click)=updateHabit(editHabit)>
+  <input type="submit" name="Cancel" value="Cancel" (click)="editHabit = null">
+</form>

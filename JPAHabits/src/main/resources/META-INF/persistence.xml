@@ -8,6 +8,8 @@
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 		<!-- list entities here -->
 		<class>com.skilldistillery.habits.entities.Habit</class>
+		<class>com.skilldistillery.habits.entities.HabitEntry</class>
+		<class>com.skilldistillery.habits.entities.User</class>
 
 		<!-- end list entities -->
 		<properties>

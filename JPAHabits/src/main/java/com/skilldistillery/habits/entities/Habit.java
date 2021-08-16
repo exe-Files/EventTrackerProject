@@ -1,14 +1,20 @@
 package com.skilldistillery.habits.entities;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 import org.hibernate.annotations.CreationTimestamp;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Habit {
@@ -44,6 +50,15 @@ public class Habit {
 	private String color;
 
 	private String icon;
+	
+	@JsonIgnore //ignores
+	@OneToMany(mappedBy="habit") //mapped by the field in HabitEntry entity
+	private List<HabitEntry> habitEntries;
+	
+	@ManyToOne
+	@JoinColumn(name="user_id")
+	private User user;
+	
 
 	// Constructors
 
@@ -157,13 +172,31 @@ public class Habit {
 	public void setIcon(String icon) {
 		this.icon = icon;
 	}
+	
+	
+
+	public List<HabitEntry> getHabitEntries() {
+		return habitEntries;
+	}
+
+	public void setHabitEntries(List<HabitEntry> habitEntries) {
+		this.habitEntries = habitEntries;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
 
 	@Override
 	public String toString() {
 		return "Habit [id=" + id + ", name=" + name + ", description=" + description + ", category=" + category
 				+ ", active=" + active + ", accomplished=" + accomplished + ", recurring=" + recurring + ", frequency="
 				+ frequency + ", notes=" + notes + ", startDate=" + startDate + ", endDate=" + endDate + ", color="
-				+ color + ", icon=" + icon + "]";
+				+ color + ", icon=" + icon + ", habitEntries=" + habitEntries + ", user=" + user + "]";
 	}
 
 	@Override
